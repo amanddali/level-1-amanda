@@ -1,3 +1,4 @@
+
 public class HarryPotter {
  
 	private boolean cloakOn;

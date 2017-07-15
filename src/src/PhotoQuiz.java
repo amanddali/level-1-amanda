@@ -1,4 +1,6 @@
+
  // Copyright Wintriss Technical Schools 2013
+
 import java.awt.Component;
 import java.awt.Frame;
 import java.net.MalformedURLException;
@@ -22,7 +24,7 @@ public class PhotoQuiz {
 		JFrame frame = new JFrame();
 		JPanel panel = new JPanel();
 		// 3. use the "createImage()" method below to initialize your Component
- 
+		
 		// 4. add the image to the quiz window
  
 		// 5. call the pack() method on the quiz window
