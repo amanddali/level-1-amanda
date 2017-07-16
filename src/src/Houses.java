@@ -5,7 +5,7 @@ import org.jointheleague.graphical.robot.Robot;
 public class Houses {
 	static Robot bob = new Robot("mini");
 	static Random randomMaker = new Random();
-	//kkkkkkk
+	
 	public static void main(String[] args) {
 		Robot.setWindowColor(Color.black);
 		bob.moveTo(100, 800);

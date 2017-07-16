@@ -3,6 +3,7 @@
 
 import java.awt.Component;
 import java.awt.Frame;
+import java.awt.GridLayout;
 import java.net.MalformedURLException;
 import java.net.URL;
  
@@ -11,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
  
 public class PhotoQuiz {
  
@@ -18,35 +20,37 @@ public class PhotoQuiz {
 		Frame quizWindow = new Frame();
 		quizWindow.setVisible(true);
  
-		// 1. find an image on the internet, and put its URL in a String variable (from your browser, right click on the image, and select “Copy Image URL”)
-		String image ="http://www.lostsurfboards.net/wp-content/uploads/2015/04/shortround-3d-surfboard-2015.png";
-		// 2. create a variable of type "Component" that will hold your image
+		String imageOne ="http://www.lostsurfboards.net/wp-content/uploads/2015/04/shortround-3d-surfboard-2015.png";
 		JFrame frame = new JFrame();
-		JPanel panel = new JPanel();
-		// 3. use the "createImage()" method below to initialize your Component
-		
-		// 4. add the image to the quiz window
- 
-		// 5. call the pack() method on the quiz window
- 
-		// 6. ask a question that relates to the image
- 
-		// 7. print "CORRECT" if the user gave the right answer
- 
-		// 8. print "INCORRECT" if the answer is wrong
- 
-		// 9. remove the component from the quiz window (you may not see the effect of this until step 12)
- 
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(200, 200);
+		frame.setTitle("Photo Quiz");
+		createImage(imageOne);
+		frame.add(createImage(imageOne));
+		frame.pack();
+		String answerOne = JOptionPane.showInputDialog("Can you use it in the sand?");
+		if(answerOne.equalsIgnoreCase("no")){
+			JOptionPane.showMessageDialog(null, "Correct");
+		} else{
+			JOptionPane.showMessageDialog(null, "Incorrect");
+		} 
+		frame.remove(createImage(imageOne));
 		// 10. find another image and create it (might take more than one line of code)
- 
+		String imageTwo = "https://www.google.com/imgres?imgurl=http%3A%2F%2Fimages.selfridges.com%2Fis%2Fimage%2Fselfridges%2F317-77011643-LUMSILKFDT_425_M%3F%24PDP_M_ALL%24&imgrefurl=http%3A%2F%2Fwww.selfridges.com%2FUS%2Fen%2Fcat%2Fgiorgio-armani-luminous-silk-foundation_317-77011643-LUMSILKFDT%2F&docid=LNHjqKx7DptsmM&tbnid=Ryd8yWDM4fe71M%3A&vet=10ahUKEwjB2vT-747VAhVk04MKHXX9C6QQMwj5ASgIMAg..i&w=444&h=492&bih=828&biw=1432&q=giorgio%20armani%20luminous%20silk%20foundation&ved=0ahUKEwjB2vT-747VAhVk04MKHXX9C6QQMwj5ASgIMAg&iact=mrc&uact=8";
+		createImage(imageTwo);
 		// 11. add the second image to the quiz window
- 
+		frame.add(createImage(imageTwo));
 		// 12. pack the quiz window
- 
+		frame.pack();
 		// 13. ask another question
- 
+		JOptionPane.showInputDialog("Can you make yourself look better with this?");
 		// 14+ check answer, say if correct or incorrect, etc.
- 
+		if(answerOne.equalsIgnoreCase("yes")){
+			JOptionPane.showMessageDialog(null, "Correct");
+		} else{
+			JOptionPane.showMessageDialog(null, "Incorrect");
+		} 
 	}
  
 	private static Component createImage(String imageUrl) throws MalformedURLException {
