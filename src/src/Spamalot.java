@@ -1,3 +1,5 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -11,7 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class Spamalot {
+public class Spamalot implements ActionListener {
 	static final String FAKE_USERNAME = "yourfriendlyonionring";
 	static final String FAKE_PASSWORD = "imnevergonnausethisaccountbecauseitsstupid";
 	JFrame frame = new JFrame();
@@ -21,11 +23,12 @@ public class Spamalot {
 	JButton b2 = new JButton("GOOD");
 	String message = "Hello friend, it is your friendly onion ring:)";
 	String subject = "Hello";
+	String recipient = "keith.groves@jointheleauge.org";
+	static Spamalot spam;
 
 	public static void main(String[] args) {
-		Spamalot Spamalot = new Spamalot();
-		Spamalot.createUI();
-		Spamalot.sendSpam(recipient, subject, content);
+		spam = new Spamalot();
+		spam.createUI();
 	}
 
 	public void createUI() {
@@ -35,6 +38,8 @@ public class Spamalot {
 		panel.add(type);
 		panel.add(b1);
 		panel.add(b2);
+		b1.addActionListener(this);
+		b2.addActionListener(this);
 		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
@@ -67,6 +72,15 @@ public class Spamalot {
 			e.printStackTrace();
 			return false;
 		}
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource()==b1){
+			spam.sendSpam(spam.recipient, spam.subject, spam.message);
+		}
+		
 	}
 
 }
